@@ -75,7 +75,7 @@ function Login({ setIsAuthenticated }) {
     if (isLogin) {
       try{
 
-        const response = await fetch('http://localhost/bakery/appApi/login.php', {
+        const response = await fetch('https://nayanfood.in/bakery/appApi/login.php', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -234,7 +234,7 @@ function Dashboard({
   useEffect(() => {
     async function fetchDeliveries() {
       try {
-        const response = await fetch(`http://localhost/bakery/appApi/dashboard.php?driver_id=${driverId}`);
+        const response = await fetch(`https://nayanfood.in/bakery/appApi/dashboard.php?driver_id=${driverId}`);
         const data = await response.json();
         // Check the type of 'data'
         
