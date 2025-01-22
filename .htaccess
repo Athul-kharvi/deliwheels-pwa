@@ -1,0 +1,27 @@
+# Enable Rewrite Engine
+RewriteEngine On
+
+# Redirect all requests to the `out` folder
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /out/$1 [L]
+
+# Serve index.html for client-side routing
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ /out/index.html [L]
+
+# Enable caching for performance
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpg "access 1 year"
+  ExpiresByType image/jpeg "access 1 year"
+  ExpiresByType image/png "access 1 year"
+  ExpiresByType image/gif "access 1 year"
+  ExpiresByType text/css "access 1 month"
+  ExpiresByType application/javascript "access 1 month"
+  ExpiresByType text/html "access 1 day"
+</IfModule>
+
+# Handle 404 errors
+ErrorDocument 404 /out/404.html
