@@ -99,6 +99,9 @@ const RetailShops = () => {
                     console.log("hellow rodl")
                     setShops((prev) => prev.filter((shop) => shop.id !== id));
                 }
+                resetForm();
+                // Refresh the page after successful shop creation
+                window.location.reload();
             })
             .catch((error) => console.error('Error deleting shop:', error));
     };
@@ -213,13 +216,13 @@ const RetailShops = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {shops.map((shop) => (
-                            <tr key={shop.id} className="border-t">
-                                <td className="px-4 py-2">{shop.name}</td>
-                                <td className="px-4 py-2">{shop.address}</td>
-                                <td className="px-4 py-2">{shop.mobile_no}</td>
-                                <td className="px-4 py-2">{shop.debt_amount}</td>
-                                <td className="px-4 py-2">{shop.owner_name}</td>
+                    {shops.map((shop) => (
+                        <tr key={shop?.id} className="border-t">
+                            <td className="px-4 py-2">{shop?.name || 'N/A'}</td>
+                            <td className="px-4 py-2">{shop?.address || 'N/A'}</td>
+                            <td className="px-4 py-2">{shop?.mobile_no || 'N/A'}</td>
+                            <td className="px-4 py-2">{shop?.debt_amount || 'N/A'}</td>
+
                                 <td className="px-4 py-2 flex justify-start space-x-2">
                                     <button
                                         onClick={() => handleEdit(shop)}

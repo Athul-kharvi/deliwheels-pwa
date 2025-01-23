@@ -1,10 +1,1 @@
-{
-    "name": "DeliWheels",
-    "short_name": "DeliWheels",
-    "description": "A delivery management app.",
-    "start_url": "/",
-    "display": "standalone",
-    "background_color": "#ffffff",
-    "theme_color": "#317EFB"
-  }
-  
+{"theme_color":"#8936FF","background_color":"#2EC6FE","icons":[{"purpose":"maskable","sizes":"512x512","src":"icon512_maskable.png","type":"image/png"},{"purpose":"any","sizes":"512x512","src":"icon512_rounded.png","type":"image/png"}],"orientation":"any","display":"standalone","dir":"auto","lang":"en-US","name":"deliwheels","short_name":"deliwheels","start_url":"/","scope":"/"}

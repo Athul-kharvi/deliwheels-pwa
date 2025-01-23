@@ -1,17 +1,20 @@
 /** @type {import('next').NextConfig} */
+import next from "next";
+import withPWA from "next-pwa"
+
 const nextConfig = {
-  output: 'export', // Enables static site generation
-
-  webpack: (config) => {
-    config.externals = [...(config.externals || []), { canvas: 'canvas' }]; // required to make pdfjs work
-    return config;
-  },
-
-  pwa: {
-    dest: 'public',  // Where to generate the PWA assets
-    register: true,  // Register the service worker
-    skipWaiting: true,  // Skip waiting during service worker update
+  output: "export",
+  distDir: "out",
+  reactStrictMode: true,
+  swcMinify: true,
+  compiler: {
+    removeConsole: process.env.NODE_ENV !== "development",
   },
 };
 
-module.exports = nextConfig;
+export default withPWA({
+  dest: "public",
+  disable: process.env.NODE_ENV === "development",
+  register: true,
+  skipWaiting: true,
+})(nextConfig);
